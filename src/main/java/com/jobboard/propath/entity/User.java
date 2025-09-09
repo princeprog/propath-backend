@@ -33,6 +33,9 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String phone;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JobSeekerProfile> jobSeekerProfiles;
+
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] profilePhoto;
