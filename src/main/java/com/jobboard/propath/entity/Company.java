@@ -3,7 +3,8 @@ package com.jobboard.propath.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import java.time.LocalDateTime;
+
+import java.util.Date;
 
 @Table(name = "companies")
 @Entity
@@ -18,9 +19,10 @@ public class Company {
     @Column(nullable = false, length = 2000)
     private String description;
     
-    @Column(nullable = false)
-    private String logoUrl;
-    
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] logoUrl;
+
     @Column(nullable = false)
     private String location;
 
@@ -32,11 +34,26 @@ public class Company {
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    private Date updatedAt;
+
+        public Company() {
+    }
+
+    public Company(long companyId, String companyName, String description, byte[] logoUrl, String location, String website, String industry, Date createdAt, Date updatedAt) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+        this.description = description;
+        this.logoUrl = logoUrl;
+        this.location = location;
+        this.website = website;
+        this.industry = industry;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     public Long getCompanyId() {
         return companyId;
@@ -62,11 +79,11 @@ public class Company {
         this.description = description;
     }
 
-    public String getLogoUrl() {
+    public byte[] getLogoUrl() {
         return logoUrl;
     }
 
-    public void setLogoUrl(String logoUrl) {
+    public void setLogoUrl(byte[] logoUrl) {
         this.logoUrl = logoUrl;
     }
 
@@ -94,19 +111,19 @@ public class Company {
         this.industry = industry;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
