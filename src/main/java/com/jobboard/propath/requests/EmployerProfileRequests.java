@@ -1,16 +1,16 @@
 package com.jobboard.propath.requests;
 
 public class EmployerProfileRequests {
-    private long profileId;
+    private Long profileId;
     private Long userId;
     private Long companyId;
     private String position;
 
-    public long getProfileId() {
+    public Long getProfileId() {
         return profileId;
     }
 
-    public void setProfileId(long profileId) {
+    public void setProfileId(Long profileId) {
         this.profileId = profileId;
     }
 
