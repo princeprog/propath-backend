@@ -1,7 +1,7 @@
 package com.jobboard.propath.requests;
 
 public class CompanyRequests {
-    private Long   companyId;
+    private Long companyId;
     private String companyName;
     private String description;
     private String logoUrl;
