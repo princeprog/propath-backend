@@ -45,6 +45,7 @@ public class JobPostService {
             jobPost.setSalaryMinimum(requests.getSalaryMinimum());
             jobPost.setSalaryMaximum(requests.getSalaryMaximum());
             jobPost.setCategory(requests.getCategory());
+            jobPost.setStatus(requests.getStatus());
             return jrepo.save(jobPost);
         }catch (Exception e){
             e.printStackTrace();
@@ -78,6 +79,7 @@ public class JobPostService {
                 jobPost.setSalaryMinimum(requests.getSalaryMinimum());
                 jobPost.setSalaryMaximum(requests.getSalaryMaximum());
                 jobPost.setCategory(requests.getCategory());
+                jobPost.setStatus(requests.getStatus());
                 return jrepo.save(jobPost);
             }).orElse(null);
         }catch (Exception e){

@@ -36,6 +36,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<JobSeekerProfile> jobSeekerProfiles;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployerProfile> employerProfiles;
+
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] profilePhoto;

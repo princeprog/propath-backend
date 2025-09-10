@@ -16,7 +16,11 @@ public class Application {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "applicantUserId", nullable = false)
-    private User applicantUser;
+    private JobSeekerProfile applicantUser;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "jobPostId", nullable = false)
+    private JobPost jobPost;
 
     @Column(nullable = false)
     private String resumeUrl;
@@ -42,7 +46,7 @@ public class Application {
     public Application() {
     }
 
-    public Application(long applicationId, User applicantUser, String resumeUrl, String coverLetter, ApplicationStatus status, Date appliedAt, Date updatedAt, String employerNotes) {
+    public Application(long applicationId, JobSeekerProfile applicantUser, String resumeUrl, String coverLetter, ApplicationStatus status, Date appliedAt, Date updatedAt, String employerNotes) {
         this.applicationId = applicationId;
         this.applicantUser = applicantUser;
         this.resumeUrl = resumeUrl;
@@ -61,11 +65,11 @@ public class Application {
         this.applicationId = applicationId;
     }
 
-    public User getApplicantUser() {
+    public JobSeekerProfile getApplicantUser() {
         return applicantUser;
     }
 
-    public void setApplicantUser(User applicantUser) {
+    public void setApplicantUser(JobSeekerProfile applicantUser) {
         this.applicantUser = applicantUser;
     }
 

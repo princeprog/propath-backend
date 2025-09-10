@@ -95,4 +95,12 @@ public class JobPostRequests {
     public void setJobType(JobPost.JobType jobType) {
         this.jobType = jobType;
     }
+
+    public JobPost.JobStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(JobPost.JobStatus status) {
+        this.status = status;
+    }
 }
