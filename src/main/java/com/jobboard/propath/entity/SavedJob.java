@@ -14,11 +14,13 @@ public class SavedJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long savedJobId;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @Column(name = "job_id", nullable = false)
-    private Long jobId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "job_id", nullable = false)
+    private JobPost job;
 
     @CreationTimestamp
     @Column(name = "saved_at", nullable = false, updatable = false)
@@ -27,10 +29,10 @@ public class SavedJob {
     public SavedJob() {
     }
 
-    public SavedJob(Long savedJobId, Long userId, Long jobId, Date savedAt) {
+    public SavedJob(Long savedJobId, User user, JobPost job, Date savedAt) {
         this.savedJobId = savedJobId;
-        this.userId = userId;
-        this.jobId = jobId;
+        this.user = user;
+        this.job = job;
         this.savedAt = savedAt;
     }
 
@@ -42,20 +44,20 @@ public class SavedJob {
         this.savedJobId = savedJobId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getJobId() {
-        return jobId;
+    public JobPost getJob() {
+        return job;
     }
 
-    public void setJobId(Long jobId) {
-        this.jobId = jobId;
+    public void setJob(JobPost job) {
+        this.job = job;
     }
 
     public Date getSavedAt() {
