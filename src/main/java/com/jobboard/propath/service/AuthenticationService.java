@@ -3,7 +3,8 @@ package com.jobboard.propath.service;
 import com.jobboard.propath.dto.LoginUserDto;
 import com.jobboard.propath.dto.RegisterUserDto;
 import com.jobboard.propath.entity.User;
-import com.jobboard.propath.repostitory.UserRepository;
+import com.jobboard.propath.repository.UserRepository;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

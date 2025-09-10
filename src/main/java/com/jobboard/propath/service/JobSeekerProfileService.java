@@ -2,8 +2,8 @@ package com.jobboard.propath.service;
 
 import com.jobboard.propath.entity.JobSeekerProfile;
 import com.jobboard.propath.entity.User;
-import com.jobboard.propath.repostitory.JobSeekerProfileRepository;
-import com.jobboard.propath.repostitory.UserRepository;
+import com.jobboard.propath.repository.JobSeekerProfileRepository;
+import com.jobboard.propath.repository.UserRepository;
 import com.jobboard.propath.requests.JobSeekerProfileRequests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

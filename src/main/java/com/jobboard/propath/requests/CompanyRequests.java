@@ -1,42 +1,13 @@
-package com.jobboard.propath.entity;
+package com.jobboard.propath.requests;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import java.time.LocalDateTime;
-
-@Table(name = "companies")
-@Entity
-public class Company {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CompanyRequests {
     private Long companyId;
-
-    @Column(nullable = false, unique = true)
     private String companyName;
-
-    @Column(nullable = false, length = 2000)
     private String description;
-    
-    @Column(nullable = false)
     private String logoUrl;
-    
-    @Column(nullable = false)
     private String location;
-
-    @Column(nullable = false)
     private String website;
-
-    @Column(nullable = false)
     private String industry;
-
-    @CreationTimestamp
-    @Column(updatable = false, name = "created_at")
-    private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 
     public Long getCompanyId() {
         return companyId;
@@ -92,24 +63,5 @@ public class Company {
 
     public void setIndustry(String industry) {
         this.industry = industry;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
+    }        
 }
-
-

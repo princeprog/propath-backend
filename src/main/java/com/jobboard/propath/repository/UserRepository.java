@@ -1,4 +1,4 @@
-package com.jobboard.propath.repostitory;
+package com.jobboard.propath.repository;
 
 import com.jobboard.propath.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

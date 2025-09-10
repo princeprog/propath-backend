@@ -1,7 +1,8 @@
 package com.jobboard.propath.service;
 
 import com.jobboard.propath.entity.User;
-import com.jobboard.propath.repostitory.UserRepository;
+import com.jobboard.propath.repository.UserRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
