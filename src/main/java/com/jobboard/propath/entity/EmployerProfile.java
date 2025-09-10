@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "employer_profile")
 @Entity
@@ -21,6 +22,9 @@ public class EmployerProfile {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "companyId", nullable = false)
     private Company company;
+
+    @OneToMany(mappedBy = "employerProfile", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JobPost> jobPosts;
 
     @Column(nullable = false)
     private String position;
