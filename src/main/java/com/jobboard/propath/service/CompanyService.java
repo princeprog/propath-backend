@@ -22,7 +22,7 @@ public class CompanyService {
         Company company = new Company();
         company.setCompanyName(requests.getCompanyName());
         company.setDescription(requests.getDescription());
-        company.setLogoUrl(requests.getLogoUrl());
+        company.setLogoUrl(requests.getLogoUrl() != null ? requests.getLogoUrl().getBytes() : null);
         company.setLocation(requests.getLocation());
         company.setWebsite(requests.getWebsite());
         company.setIndustry(requests.getIndustry());
@@ -41,7 +41,7 @@ public class CompanyService {
         return crepo.findById(id).map(company -> {
             company.setCompanyName(requests.getCompanyName());
             company.setDescription(requests.getDescription());
-            company.setLogoUrl(requests.getLogoUrl());
+            company.setLogoUrl(requests.getLogoUrl() != null ? requests.getLogoUrl().getBytes() : null);
             company.setLocation(requests.getLocation());
             company.setWebsite(requests.getWebsite());
             company.setIndustry(requests.getIndustry());
