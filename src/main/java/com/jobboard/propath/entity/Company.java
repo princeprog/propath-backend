@@ -42,11 +42,14 @@ public class Company {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-        public Company() {
+    public Company() {
     }
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<JobPost> jobPosts;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployerProfile> employerProfiles;
 
     public Company(long companyId, String companyName, String description, byte[] logoUrl, String location, String website, String industry, Date createdAt, Date updatedAt) {
         this.companyId = companyId;

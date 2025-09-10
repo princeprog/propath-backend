@@ -1,8 +1,10 @@
 package com.jobboard.propath.service;
 
 import com.jobboard.propath.entity.Application;
+import com.jobboard.propath.entity.JobSeekerProfile;
 import com.jobboard.propath.entity.User;
 import com.jobboard.propath.repository.ApplicationRepository;
+import com.jobboard.propath.repository.JobSeekerProfileRepository;
 import com.jobboard.propath.repository.UserRepository;
 import com.jobboard.propath.requests.ApplicationRequests;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ public class ApplicationService {
     private ApplicationRepository applicationRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private JobSeekerProfileRepository userRepository;
 
     public List<Application> getAllApplications() {
         return applicationRepository.findAll();
@@ -26,7 +28,7 @@ public class ApplicationService {
     public Application saveApplication(ApplicationRequests requests) {
         Application application = new Application();
         if (requests.getApplicantUserId() != null) {
-            User user = userRepository.findById(requests.getApplicantUserId())
+            JobSeekerProfile user = userRepository.findById(requests.getApplicantUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
             application.setApplicantUser(user);
         }
@@ -48,7 +50,7 @@ public class ApplicationService {
     public Application updateApplication(Long id, ApplicationRequests requests) {
         return applicationRepository.findById(id).map(application -> {
             if (requests.getApplicantUserId() != null) {
-                User user = userRepository.findById(requests.getApplicantUserId())
+                JobSeekerProfile user = userRepository.findById(requests.getApplicantUserId())
                     .orElseThrow(() -> new RuntimeException("User not found"));
                 application.setApplicantUser(user);
             }

@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "job_seeker_profiles")
 @Entity
@@ -17,6 +18,9 @@ public class JobSeekerProfile {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "applicantUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Application> applications;
 
     @Column(nullable = false, name = "resume_url")
     private String resumeUrl;
