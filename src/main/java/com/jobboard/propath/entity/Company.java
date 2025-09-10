@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "companies")
 @Entity
@@ -43,6 +44,9 @@ public class Company {
 
         public Company() {
     }
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JobPost> jobPosts;
 
     public Company(long companyId, String companyName, String description, byte[] logoUrl, String location, String website, String industry, Date createdAt, Date updatedAt) {
         this.companyId = companyId;
